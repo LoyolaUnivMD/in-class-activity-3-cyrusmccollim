@@ -33,11 +33,16 @@ class Hill{
     return height;
   }
   
-  public String getPar(){
+  public int getPar(){
     return par;
   }
 
-  public String getPointsPerMeter(){
+  public double getPointsPerMeter(){
     return pointsPerMeter;
+  }
+
+  public double calculatePoints(double jumperSpeed){
+    distanceTraveled = jumperSpeed * Math.sqrt((2 * height) / 9.8);
+    return 60 + (distanceTraveled - par) * pointsPerMeter;
   }
 }
