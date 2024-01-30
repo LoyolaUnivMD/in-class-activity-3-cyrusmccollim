@@ -1,4 +1,4 @@
-class Hill{
+public class Hill {
   private String type;
   private int height;
   private int par;
@@ -57,5 +57,4 @@ class Hill{
     else if (points < 10)  result = "What happened?";
     else                   result = "Sorry you didn’t go very far.";
   }
-  
 }
