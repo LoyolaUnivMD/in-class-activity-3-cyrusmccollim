@@ -2,33 +2,20 @@ import java.util.*;
 
 public class Hill {
   private String type;
-  private int height;
-  private int par;
-  private double pointsPerMeter;
-  private double points;
+  private int height, par;
+  private double pointsPerMeter, points;
 
   public Hill(){
-    type = "normal";
-    height = 46;
-    pointsPerMeter = 2;
-    par = 90;
-    points = 0;
+    type = "normal"; height = 46; pointsPerMeter = 2; par = 90; points = 0;
   }
   
   public Hill(String type){
     if (type.equals("large")){
-      this.type = "large";
-      height = 70;
-      pointsPerMeter = 1.8;
-      par = 120;
-      points = 0;
+      this.type = "large"; height = 70; pointsPerMeter = 1.8; par = 120;
     } else {
-      this.type = "normal";
-      height = 46;
-      pointsPerMeter = 2;
-      par = 90;
-      points = 0;
+      this.type = "normal"; height = 46; pointsPerMeter = 2; par = 90;
     }
+    points = 0;
   }
 
   public String getType(){
