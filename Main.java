@@ -1,12 +1,11 @@
-//HelloWorld.java
 import java.util.*;
 
-class SkiJump {
+public class Main {
     public static void main(String[] args) {
-        Scanner input = new Scanner();
+        Scanner input = new Scanner(System.in);
         
         System.out.println("What is the type of the hill? (Normal/Large)");
-        hillType = input.nextLine();
+        String hillType = input.nextLine();
         
         Hill hill1 = new Hill(hillType);
         
@@ -17,5 +16,5 @@ class SkiJump {
 
         System.out.println(hill1.findResult()); 
     }
-
 }
+
