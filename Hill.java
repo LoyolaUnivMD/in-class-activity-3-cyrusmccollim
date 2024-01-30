@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Hill {
   private String type;
   private int height;
@@ -5,7 +7,7 @@ public class Hill {
   private double pointsPerMeter;
   private double points;
 
-  public void Hill(){
+  public Hill(){
     type = "normal";
     height = 46;
     pointsPerMeter = 2;
@@ -13,19 +15,19 @@ public class Hill {
     points = 0;
   }
   
-  public void Hill(String type){
-    if (type.toLowerCase.equals("large")){
+  public Hill(String type){
+    if (type.equals("large")){
       this.type = "large";
       height = 70;
       pointsPerMeter = 1.8;
       par = 120;
-      points = 0
+      points = 0;
     } else {
       this.type = "normal";
       height = 46;
       pointsPerMeter = 2;
       par = 90;
-      points = 0
+      points = 0;
     }
   }
 
@@ -46,8 +48,8 @@ public class Hill {
   }
 
   public double calculatePoints(double jumperSpeed){
-    distance = jumperSpeed * Math.sqrt((2 * height) / 9.8);
-    points = 60 + (distance - par) * pointsPerMeter
+    double distance = jumperSpeed * Math.sqrt((2 * height) / 9.8);
+    points = 60 + (distance - par) * pointsPerMeter;
     return points;
   }
 
@@ -56,5 +58,6 @@ public class Hill {
     if (points >= 61)      result = "Great job for doing better than par!";
     else if (points < 10)  result = "What happened?";
     else                   result = "Sorry you didn’t go very far.";
+    return result;
   }
 }
