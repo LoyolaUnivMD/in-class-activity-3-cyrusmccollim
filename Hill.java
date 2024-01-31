@@ -1,5 +1,5 @@
 public class Hill {
-  private double[] hillDetails;
+  private double[] hillDetails = new double[3];
 
   public Hill(double[] hillDetails){
     if (hillDetails != null)
