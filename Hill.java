@@ -1,27 +1,20 @@
 public class Hill {
-  private String name;
-  private double height, pointsPerMeter, par;
+  private double[] hillDetails;
 
-  public Hill(List<Object> hillDetails){
-    name = (String) hillDetails.get(0);
-    height = (double) hillDetails.get(1);
-    pointsPerMeter = (double) hillDetails.get(2);
-    par = (double) hillDetails.get(3);
-  }
-
-  public String getName(){
-    return name;
+  public Hill(double[] hillDetails){
+    if (hillDetails != null)
+      this.hillDetails = hillDetails;
   }
 
   public double getHeight(){
-    return height;
+    return hillDetails[0];
   }
 
   public double getPointsPerMeter(){
-    return pointsPerMeter;
+    return hillDetails[1];
   }
 
   public double getPar(){
-    return par;
+    return hillDetails[2];
   }
 }
