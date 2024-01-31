@@ -4,13 +4,14 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         
-        System.out.print("What is the type of hill? ");
-        String hillType = input.nextLine();
+        System.out.println("Enter the hill details. \n(Format: name height pointsPerMeter par)");
+        String[] hillDetails = input.nextLine().split(" ");
+        Hill hill = new Hill(hillDetails);
 
-        System.out.print("What is the jumper's speed at the end of the ramp? ");
+        System.out.print("Enter the jumper's speed: ");
         double jumpSpeed = input.nextDouble();
         
-        SkiJump skiJumper = new SkiJump(hillType, jumpSpeed);
+        SkiJump skiJumper = new SkiJump(hill, jumpSpeed);
 
         System.out.println(skiJumper.getResult());
     }
