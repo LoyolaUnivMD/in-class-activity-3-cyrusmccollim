@@ -1,18 +1,16 @@
-import java.util.*;
-
 public class Main {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        
+        // Inputs hill details and creates a Hill object holding that information.
         double[] hillDetails = Hill.inputHillDetails();
-
         Hill hill = new Hill(hillDetails);
 
-        System.out.print("Enter the jumper's speed: ");
-        double jumpSpeed = input.nextDouble();
-        
+        // Inputs the jumper's speed, includes crash prevention.
+        double jumpSpeed = SkiJump.inputJumperSpeed();
+
+        // Creates SkiJump object that holds the Hill object and the jumper's speed.
         SkiJump skiJumper = new SkiJump(hill, jumpSpeed);
-        
+
+        // Calls the getResult method to calculate and return the jumper's score.
         System.out.println(skiJumper.getResult());
     }
 }

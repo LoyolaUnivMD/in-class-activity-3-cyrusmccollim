@@ -14,9 +14,27 @@ public class SkiJump {
   }
 
   public String getResult(){
+    String result = "\nThe results are in. ";
+
     double points = calculatePoints();
-    if (points >= 61)      return "Great job for doing better than par!";
-    else if (points < 10)  return "What happened?";
-    else                   return "Sorry you didn’t go very far.";
+    if (points >= 61)      result += "Great job for doing better than par!";
+    else if (points < 10)  result += "What happened?";
+    else                   result += "Sorry, you did not go very far.";
+
+    return result;
+  }
+
+  public static double inputJumperSpeed(){
+    double jumpSpeed = 25.0; // The average.
+
+    try {
+      System.out.print("\nEnter the jumper's speed: ");
+      Scanner input = new Scanner(System.in);
+      jumpSpeed = input.nextDouble();
+    } catch (Exception e){
+      System.out.println("An error occurred, jump speed set to the average.");
+    }
+
+    return jumpSpeed;
   }
 }

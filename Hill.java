@@ -1,12 +1,9 @@
 import java.util.*;
 
 public class Hill {
-  private double[] hillDetails = new double[3]; // [height, pointsPerMeter, par]
+  private final double[] hillDetails; // Format: [height, pointsPerMeter, par]
 
-  public Hill(double[] hillDetails){
-    if (hillDetails != null)
-      this.hillDetails = hillDetails;
-  }
+  public Hill(double[] hillDetails) { this.hillDetails = hillDetails; }
 
   public double getHeight(){
     return hillDetails[0];
@@ -21,21 +18,23 @@ public class Hill {
   }
 
   public static double[] inputHillDetails(){
-    double[] hillDetails;
 
-    System.out.println("Enter the hill details. \n(Format: height pointsPerMeter par)");
+    double[] details = new double[]{46.0, 2.0, 90.0}; // The default hill details, called "normal".
+
+    System.out.print("\n[Format: height pointsPerMeter par]\nEnter the hill details: ");
+    Scanner input = new Scanner(System.in);
     String[] hillDetailsInput = input.nextLine().split(" ");
-    while (hillDetailsInput.length() != 3){
-        System.out.println("An error occured, please try again.");
-        hillDetailsInput = input.nextLine().split(" ");
-    }
         
     try {
-      hillDetails = new double[]{(double) hillDetailsInput[0], (double) hillDetailsInput[1], (double) hillDetailsInput[2]};
+      double[] detailsTemp = new double[3];
+      for (int i = 0; i < 3; i++){
+        detailsTemp[i] = Double.parseDouble(hillDetailsInput[i]);
+      }
+      details = detailsTemp;
     } catch (Exception e) {
-      System.out.println("An error occured, hill details not updated.");
+      System.out.println("An error occurred, hill details set to \"normal\".");
     }
 
-    return hillDetails; 
+    return details;
   }
 }
