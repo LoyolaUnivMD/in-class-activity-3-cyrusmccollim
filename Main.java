@@ -18,27 +18,21 @@ public class Main {
         System.out.println(skiJumper.getResult());
     }
 
-    public String[] inputHillDetails(){
-        String[] hillDetailsInput = input.nextLine().split(" ");
+    public double[] inputHillDetails(){
+        double[] hillDetails = new double[3];
         
+        String[] hillDetailsInput = input.nextLine().split(" ");
         while (hillDetailsInput.length() != 3){
             System.out.println("An error occured, please try again.");
             hillDetailsInput = input.nextLine().split(" ");
         }
         
-        return hillDetailsInput;
-    }
-
-    public double[] convertHillDetailsDouble(String[] hillDetailsString){
-        double[] hillDetails;
-        
         try {
-            hillDetails = new double[]{(double) hillDetailsString[0], (double) hillDetailsString[1], (double) hillDetailsString[2]};
+            hillDetails = new double[]{(double) hillDetailsInput[0], (double) hillDetailsInput[1], (double) hillDetailsInput[2]};
         } catch (Exception e) {
-            System.out.println("An error occured, hill details not initialized.");
+            System.out.println("An error occured, hill details not updated.");
         }
-        
+
         return hillDetails; 
     }
 }
-
