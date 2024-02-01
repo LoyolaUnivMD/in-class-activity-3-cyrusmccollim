@@ -20,9 +20,10 @@ public class Hill {
     return hillDetails[2];
   }
 
-  public double[] inputHillDetails(){
-    double[] hillDetails = new double[3];
-        
+  public static double[] inputHillDetails(){
+    double[] hillDetails;
+
+    System.out.println("Enter the hill details. \n(Format: height pointsPerMeter par)");
     String[] hillDetailsInput = input.nextLine().split(" ");
     while (hillDetailsInput.length() != 3){
         System.out.println("An error occured, please try again.");
@@ -32,7 +33,7 @@ public class Hill {
     try {
       hillDetails = new double[]{(double) hillDetailsInput[0], (double) hillDetailsInput[1], (double) hillDetailsInput[2]};
     } catch (Exception e) {
-        System.out.println("An error occured, hill details not updated.");
+      System.out.println("An error occured, hill details not updated.");
     }
 
     return hillDetails; 
