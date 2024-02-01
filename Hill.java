@@ -1,5 +1,7 @@
+import java.util.*;
+
 public class Hill {
-  private double[] hillDetails = new double[3];
+  private double[] hillDetails = new double[3]; // [height, pointsPerMeter, par]
 
   public Hill(double[] hillDetails){
     if (hillDetails != null)
@@ -16,5 +18,23 @@ public class Hill {
 
   public double getPar(){
     return hillDetails[2];
+  }
+
+  public double[] inputHillDetails(){
+    double[] hillDetails = new double[3];
+        
+    String[] hillDetailsInput = input.nextLine().split(" ");
+    while (hillDetailsInput.length() != 3){
+        System.out.println("An error occured, please try again.");
+        hillDetailsInput = input.nextLine().split(" ");
+    }
+        
+    try {
+      hillDetails = new double[]{(double) hillDetailsInput[0], (double) hillDetailsInput[1], (double) hillDetailsInput[2]};
+    } catch (Exception e) {
+        System.out.println("An error occured, hill details not updated.");
+    }
+
+    return hillDetails; 
   }
 }
